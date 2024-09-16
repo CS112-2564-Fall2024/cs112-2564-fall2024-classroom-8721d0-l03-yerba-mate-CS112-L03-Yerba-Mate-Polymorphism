@@ -1,8 +1,8 @@
 public class CaffeinatedBeverage
 {
-    private String name;
-    private int ounces;
-    private double price;
+    protected String name;
+    protected int ounces;
+    protected double price;
 
     public CaffeinatedBeverage(String name, int ounces, double price) {
         this.name = name;
@@ -23,7 +23,11 @@ public class CaffeinatedBeverage
     }
 
     public void setOunces(int ounces) {
-        this.ounces = ounces;
+        if (ounces > 0) {
+            this.ounces = ounces;
+        } else {
+            System.out.println("Invalid Amount");
+        }
     }
 
     public double getPrice() {
@@ -31,9 +35,27 @@ public class CaffeinatedBeverage
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price > 0) {
+            this.price = price;
+        } else {
+            System.out.println("Invalid Price");
+        }
     }
 
+    public String toString(){
+        return("Name: " + this.name + "Ounces: " + this.ounces + "Price: " + this.price);
+    }
+
+    public boolean sip(int sipAmount) {
+    this.ounces -= sipAmount; 
+    if(this.ounces > 0){
+        return true; 
+    } else {
+        this.ounces = 0;
+        return false;
+    }
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (o == null || this.getClass() != o.getClass()) return false;

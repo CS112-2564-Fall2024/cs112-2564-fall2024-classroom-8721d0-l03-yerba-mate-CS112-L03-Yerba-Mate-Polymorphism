@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+//TEAM MEMBERS: NICK BILOTTO, CADEN C, DEVIN RIVAS
+
 public class Main
 {
 	public static void main(String[] args)
