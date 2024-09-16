@@ -23,8 +23,9 @@ public class Main
 			{
 			    case 1: // Tea
 			        System.out.print("Enter name      : ");
-			        name = keyboard.nextLine();
-			        System.out.print("Enter ounces    : ");
+					name = keyboard.nextLine();
+					name = keyboard.nextLine();
+					System.out.print("Enter ounces    : ");
 			        ounces = keyboard.nextInt();
 			        System.out.print("Enter price     $ ");
 			        price = keyboard.nextDouble();
