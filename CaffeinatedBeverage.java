@@ -4,6 +4,12 @@ public class CaffeinatedBeverage
     private int ounces;
     private double price;
 
+    public CaffeinatedBeverage()
+    {
+        this.name = "Unknown";
+        this.ounces = 0;
+        this.price = 0.0;
+    }
     public CaffeinatedBeverage(String name, int ounces, double price) {
         this.name = name;
         this.ounces = ounces;
@@ -23,7 +29,14 @@ public class CaffeinatedBeverage
     }
 
     public void setOunces(int ounces) {
-        this.ounces = ounces;
+        if (ounces >= 0)
+        {
+            this.ounces = ounces;
+        }
+        else 
+        {
+        System.out.println("Invalid Number");   
+        }
     }
 
     public double getPrice() {
@@ -31,15 +44,42 @@ public class CaffeinatedBeverage
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price >= 0)
+        {
+            this.price = price;
+        }
+        else 
+        {
+            System.out.println("Invaild number");   
+        }
+    }
+
+    public String toString()
+    {
+        return String.format("Tea: %S, %d ounces, $%f", name, ounces, price);
+
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || this.getClass() != o.getClass()) return false;
+        if (o == null || this.getClass() != o.getClass())
+            return false;
         CaffeinatedBeverage that = (CaffeinatedBeverage) o;
         return this.ounces == that.ounces &&
                 Double.compare(this.price, that.price) == 0 &&
-               this.name.equals(that.name);
+                this.name.equals(that.name);
+    }
+    
+    public boolean sip(int sip){
+    if(sip >= ounces)
+    {
+        ounces = 0;
+        return false;
+    }
+    else
+    {
+        ounces -= sip;
+        return true;
+    }
     }
 }
