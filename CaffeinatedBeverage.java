@@ -1,8 +1,8 @@
 public class CaffeinatedBeverage
 {
-    private String name;
-    private int ounces;
-    private double price;
+    protected String name;
+    protected int ounces;
+    protected double price;
 
     public CaffeinatedBeverage()
     {
