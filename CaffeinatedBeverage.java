@@ -61,7 +61,7 @@ public class CaffeinatedBeverage
     }
 
     public String toString() {
-        return this.name + " " + this.ounces + " " + this.price;
+        return String.format("%s, %d ounces, $%.2f", this.name, this.ounces, this.price);
     }
 
     @Override

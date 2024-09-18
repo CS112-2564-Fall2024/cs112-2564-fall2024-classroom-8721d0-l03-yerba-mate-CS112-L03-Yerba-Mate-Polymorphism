@@ -23,7 +23,15 @@ public class Tea extends CaffeinatedBeverage {
     public String toString() {
         String superString = super.toString();
 
-        return superString + " " + this.brewTemp;
+        return String.format("%s, brewed @ %d\u00B0C", superString, this.brewTemp);
     }
 
+
+    public boolean equals(Object other) {
+        if (other instanceof Tea && super.equals(other)) {
+            Tea otherTea = (Tea) other;
+            return this.brewTemp == otherTea.brewTemp;
+        }
+        return false;
+    }
 }
