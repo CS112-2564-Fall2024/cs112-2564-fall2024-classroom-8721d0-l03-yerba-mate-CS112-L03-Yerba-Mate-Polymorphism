@@ -13,10 +13,12 @@ public class Tea extends CaffeinatedBeverage {
     }
 
     protected boolean equals(Tea other) {
-        return this.name.equals(other.name)
-                && this.ounces == other.ounces
-                 && this.price == other.price
-                && this.brewTemp == other.brewTemp;
+        if (other instanceof Tea && super.equals(other)) {
+            return this.brewTemp == ((Tea) other).brewTemp;
+            
+        }
+        return false;
+
     }
 
     // Getter 
@@ -30,6 +32,6 @@ public class Tea extends CaffeinatedBeverage {
     }
 
     public String toString() {
-        return "Tea:" + this.name + ", " + this.ounces + "ounces, brewed @ " + this.brewTemp + "C, " + currency.format(this.price);
+        return "Tea:" + this.name + ", " + this.ounces + " ounces, brewed @ " + this.brewTemp + "C, " + currency.format(this.price);
     }
 }
