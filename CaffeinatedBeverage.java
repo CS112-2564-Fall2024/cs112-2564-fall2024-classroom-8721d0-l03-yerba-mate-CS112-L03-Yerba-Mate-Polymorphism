@@ -1,5 +1,4 @@
-public class CaffeinatedBeverage
-{
+public class CaffeinatedBeverage {
     // constant variables
     public static final String DEFAULT_NAME = "Caffeine Fix";
     public static final int DEFAULT_OUNCES = 16;
@@ -9,10 +8,31 @@ public class CaffeinatedBeverage
     private int ounces;
     private double price;
 
+
     public CaffeinatedBeverage(String name, int ounces, double price) {
-        this.name = name;
-        this.ounces = ounces;
-        this.price = price;
+        if (!this.setAll(name, ounces, price)) {
+            System.out.println("ERROR: Bad data given to full CaffeinatedBeverage constructor");
+            System.exit(0);
+        }
+    }
+
+    /*
+     * DEFAULT CONSTRUCTOR
+     */
+    public CaffeinatedBeverage() {
+        this(DEFAULT_NAME, DEFAULT_OUNCES, DEFAULT_PRICE);
+    }
+
+    /*
+     * copy constructor
+     */
+    public CaffeinatedBeverage(CaffeinatedBeverage original) {
+        if (original != null) {
+            this.setAll(original.name, original.ounces, original.price);
+        } else {
+            System.out.println("ERROR: null data given to copy CaffeinatedBeverage constructor. ");
+            System.exit(0);
+        }
     }
 
     public String getName() {
@@ -24,7 +44,7 @@ public class CaffeinatedBeverage
             this.name = name;
             return true;
         } else {
-            return false; 
+            return false;
         }
     }
 
@@ -59,16 +79,29 @@ public class CaffeinatedBeverage
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || this.getClass() != o.getClass())
+    public boolean equals(Object other) {
+        if (other == null || other instanceof CaffeinatedBeverage)
             return false;
-        CaffeinatedBeverage that = (CaffeinatedBeverage) o;
-        return this.ounces == that.ounces &&
-                Double.compare(this.price, that.price) == 0 &&
-                this.name.equals(that.name);
+        CaffeinatedBeverage otherCaffeine = (CaffeinatedBeverage) other;
+        return this.ounces == otherCaffeine.ounces &&
+                Double.compare(this.price, otherCaffeine.price) == 0 &&
+                this.name.equals(otherCaffeine.name);
     }
 
     public String toString() {
         return String.format("CaffeinatedBeverage: name = %s, %d fl. oz., $%.2f", this.name, this.ounces, this.price);
+    }
+
+    public boolean sip(int ounces) {
+        if (this.ounces >= ounces) {
+            this.ounces -= ounces;
+        } else {
+            this.ounces = 0;
+        }
+        return this.ounces > 0;
+    }
+
+    public boolean isEmpty() {
+        return this.ounces == 0; 
     }
 }
