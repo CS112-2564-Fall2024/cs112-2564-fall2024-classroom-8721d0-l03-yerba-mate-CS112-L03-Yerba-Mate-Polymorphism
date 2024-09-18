@@ -6,7 +6,8 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		CaffeinatedBeverage[] inventory = new CaffeinatedBeverage[10];
+		int count = 10;
+		CaffeinatedBeverage[] inventory = new CaffeinatedBeverage[count];
 		Scanner keyboard = new Scanner(System.in);
 		// Prompt user with options in a loop
 		int choice, ounces, brewTemp, count = 0;
@@ -61,6 +62,8 @@ public class Main
 					for (int i = 0; i < count; i++) {
 						System.out.println(inventory[i]);
 					}
+					findAveragePrice(inventory, count);
+					findHighestPricedYerbaMate(inventory, count);
 					break;
 
 				default:
@@ -72,14 +75,29 @@ public class Main
 		} while (choice != 3);
 	}
 	
-	public static double findAveragePrice(CaffinatedBeverage[] inventory) {
-		
-		
-		return ;
+	public static double findAveragePrice(CaffeinatedBeverage[] inventory, int count) {
+		if (count == 0) return 0.0; // Prevent division by zero
+	
+		double sum = 0.0;
+		for (int i = 0; i < count; i++) {
+			sum += inventory[i].getPrice(); // Sum up the prices of all beverages
+		}
+	
+		return sum / count; // Return the average price
 	}
 	
-	public static YerbaMate findHighestPricedYerbaMate(CaffeinatedBeverage[] inventory) {
-		return ;
-	}
+	public static YerbaMate findHighestPricedYerbaMate(CaffeinatedBeverage[] inventory, int count) {
+		YerbaMate highest = null;
 
+		for (int i = 0; i < count; i++) {
+			if (inventory[i] instanceof YerbaMate) {
+				YerbaMate current = (YerbaMate) inventory[i];
+
+				if (highest == null || current.getPrice() > highest.getPrice()) {
+					highest = current;
+				}
+			}
+		}
+		return highest;
+	}
 }
