@@ -60,14 +60,16 @@ public class YerbaMate extends Tea
         return String.format("Yerba Mate: %S, %d ounces, brewed @ %d\u00B0C, $%.2f, %d passes so far", name, ounces, brewTemp, price, numPasses);
     }
     
-    public int refill(int ounces) 
+    public void refill(int refillWater) 
     {
-        return this.ounces += ounces;
+        ounces += refillWater;
     }
 
-    public int passMate()
+    public void passMate()
     {
-        return numPasses + 1;
+        numPasses++;
+        System.out.printf("The number of passes as been increased by one. Currennt count is %d%n%n", numPasses);
+
     }
 }
 

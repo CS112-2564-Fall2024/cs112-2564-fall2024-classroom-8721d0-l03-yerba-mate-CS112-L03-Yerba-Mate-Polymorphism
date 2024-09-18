@@ -73,6 +73,17 @@ public class Main
             System.out.println("No Yerba Mate found in inventory.");
         }
 		
+		//Making a tester for other class methods
+		// YerbaMate YB = new YerbaMate();
+		// YB.setAll("Serena", 45, 989.25, 89, 2);
+		// System.out.println(YB);
+		// YB.passMate();
+		// YB.sip(10);
+		// YB.refill(2);
+		// System.out.println(YB);
+		
+
+
 	}
 	
 	public static double findAveragePrice(CaffeinatedBeverage[] inventory, int count)
