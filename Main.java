@@ -38,7 +38,16 @@ public class Main
 
 					System.out.println("Your tea order has been added: " + inventory[count]);
 			        count++;
-			        break;
+					break;
+				case 2: //Yerba Mate
+					System.out.print("Enter name      : ");
+					name = keyboard.nextLine();
+					System.out.print("Enter ounces    : ");
+					ounces = keyboard.nextInt();
+					System.out.print("Enter price     $ ");
+					price = keyboard.nextDouble();
+					System.out.print("Enter brew temperature (in Celsius): ");
+					brewTemp = keyboard.nextInt();
 			
 			}
 

@@ -1,9 +1,18 @@
 public class YerbaMate extends Tea {
     private int numPasses;
+
+    public YerbaMate() {
+        super("Default Yerba Mate", 16, 5.0, 160); 
+        this.numPasses = 1;
+    }
    
     public YerbaMate(String name, int ounces, double price, int brewTemp, int numPasses) {
         super(name, ounces, price, brewTemp);
         this.numPasses = numPasses;
+    }
+
+    public int getNumPasses() {
+        return numPasses;
     }
 
     public String numPasses() {
@@ -16,8 +25,7 @@ public class YerbaMate extends Tea {
 
     @Override
     public String toString() {
-        return ("Name: " + getName() + "Ounces: " + getOunces() + "Price: " + getPrice() + "Brew Temp: " + getBrewTemp()
-                + "Num Passes: " + this.numPasses);
+        return ("Tea: " + getName() + ", " + getOunces() + "ounces"  + ", " + "brewed @ " + getBrewTemp()  + ", " + "$" + getPrice() + ", " + );
     }
 
     @Override
@@ -39,6 +47,7 @@ public class YerbaMate extends Tea {
 
     public void passMate() {
         numPasses += 1;
+        System.out.println("The Mate has been passed. The pass count is now: " + numPasses);
     }
     
 }
