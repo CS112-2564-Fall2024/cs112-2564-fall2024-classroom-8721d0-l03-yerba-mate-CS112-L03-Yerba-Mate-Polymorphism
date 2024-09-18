@@ -28,4 +28,11 @@ public class Tea extends CaffeinatedBeverage {
         super(other.getName(), other.getOunces(), other.getPrice());
         this.brewTemp = other.brewTemp;
     }
+
+    public boolean equals(Object other) {
+        if (other instanceof Tea && super.equals(other)) {
+            return this.brewTemp == ((Tea) other).brewTemp;
+        }
+        return false;
+    }
 }

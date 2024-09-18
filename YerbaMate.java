@@ -25,29 +25,27 @@ public class YerbaMate extends Tea {
 
     @Override
     public String toString() {
-        return ("Tea: " + getName() + ", " + getOunces() + "ounces"  + ", " + "brewed @ " + getBrewTemp()  + ", " + "$" + getPrice() + ", " + );
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true; // Check if they are the same object
-        if (o == null || getClass() != o.getClass()) return false; // Check if o is of type YerbaMate
-
-        YerbaMate that = (YerbaMate) o; 
-        return numPasses == that.numPasses && 
-                getBrewTemp() == that.getBrewTemp() && 
-                getOunces() == that.getOunces() && 
-                Double.compare(that.getPrice(), getPrice()) == 0 && 
-                getName().equals(that.getName()); 
+        return ("Tea: " + getName() + ", " + getOunces() + "ounces"  + ", " + "brewed @ " + getBrewTemp()  + ", " + "$" + getPrice() + ", " + this.numPasses + " passes so far");
     }
     
     public void refill(int ounces) {
         super.ounces += ounces;
     }
 
+    public void printPasses(){
+        System.out.println("The Mate has been passed. The pass count is now: " + numPasses);
+    }
+
     public void passMate() {
         numPasses += 1;
-        System.out.println("The Mate has been passed. The pass count is now: " + numPasses);
+        printPasses();
+    }
+
+    public boolean equals(Object other) {
+        if (other instanceof YerbaMate && super.equals(other)) {
+            return this.numPasses == ((YerbaMate) other).numPasses;
+        }
+        return false;
     }
     
 }
