@@ -1,8 +1,8 @@
 public class CaffeinatedBeverage
 {
-    protected String name;
-    protected int ounces;
-    protected double price;
+    public String name;
+    public int ounces;
+    public double price;
 
     public CaffeinatedBeverage()
     {
@@ -56,7 +56,7 @@ public class CaffeinatedBeverage
 
     public String toString()
     {
-        return String.format("Tea: %S, %d ounces, $%f", name, ounces, price);
+        return String.format("Drink: %S, %d ounces, $%f", name, ounces, price);
 
     }
 
@@ -70,16 +70,16 @@ public class CaffeinatedBeverage
                 this.name.equals(that.name);
     }
     
-    public boolean sip(int sip){
-    if(sip >= ounces)
+    public boolean sip(int sip)
     {
+        if(sip >= ounces)
+        {
         ounces = 0;
         return false;
-    }
-    else
-    {
+        }else
+        {
         ounces -= sip;
         return true;
-    }
+        }
     }
 }

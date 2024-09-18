@@ -4,7 +4,7 @@ public class Tea extends CaffeinatedBeverage
 
     public Tea (String name, int ounces, double price, int brewTemp)
     {
-        super();
+        super(name, ounces, price);
         this.brewTemp = brewTemp;
     }
     
@@ -31,7 +31,7 @@ public class Tea extends CaffeinatedBeverage
     
     @Override
     public boolean equals(Object o) {
-        
+
         if (o == null || this.getClass() != o.getClass())
             return false;
         Tea that = (Tea) o;
@@ -39,11 +39,13 @@ public class Tea extends CaffeinatedBeverage
                 Double.compare(this.price, that.price) == 0 &&
                 this.name.equals(that.name) && this.brewTemp == that.brewTemp;
     }
+    
     @Override
     public String toString()
     {
-
-        return String.format("Tea: %S, %d ounces, brewed @ %d%cC, $%f", name, ounces, brewTemp, "\u00B0", price);
+        return String.format("Tea: %S, %d ounces, brewed @ %d\u00B0C, $%.2f", name, ounces, brewTemp, price);
     }
-        }
+
+    
+}
 

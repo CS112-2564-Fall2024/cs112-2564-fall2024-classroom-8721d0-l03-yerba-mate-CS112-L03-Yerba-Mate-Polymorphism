@@ -4,7 +4,7 @@ public class YerbaMate extends Tea
 
     public YerbaMate(String name, int ounces, double price, int brewTemp, int numPasses)
     {
-        super();
+        super(name, ounces, price, brewTemp);
         this.numPasses = numPasses;
     }
     
@@ -38,8 +38,7 @@ public class YerbaMate extends Tea
     public String toString()
     {
 
-        return String.format("Yerba Mate: %S, %d ounces, brewed @ %d%cC, $%f, %d passes so far", name, ounces, brewTemp,
-                "\u00B0", price);
+        return String.format("Yerba Mate: %S, %d ounces, brewed @ %d\u00B0C, $%.2f, %d passes so far", name, ounces, brewTemp, price, numPasses);
     }
     
     public int refill(int ounces) 
