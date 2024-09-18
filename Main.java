@@ -63,7 +63,7 @@ public class Main
 
         System.out.printf("Average Price of Beverages: $%.2f %n%n" , averagePrice);
 
-        // Highest Priced YerbaMate
+        // Highest Priced YerbaMate 
 		YerbaMate highestPricedYerbaMate = findHighestPricedYerbaMate(inventory, count);
 		
 		if (highestPricedYerbaMate != null) 

@@ -14,6 +14,19 @@ public class Tea extends CaffeinatedBeverage
         this.brewTemp = 0;
     }
 
+    public Tea(Tea other)
+    {
+        if (other == null)
+        {
+            System.out.println("Error");
+            System.exit(0);
+        } else {
+            super.setAll(getName(), getOunces(), getPrice());
+            this.brewTemp = other.brewTemp;
+        }
+    }
+
+
     public int getBrewTemp()
     {
         return brewTemp;
@@ -27,6 +40,12 @@ public class Tea extends CaffeinatedBeverage
             System.out.println("Invalid Temperature");
         }
 
+    }
+
+    public void setAll(String name, int ounces, double price, int brewTemp) 
+    {
+        super.setAll(name, ounces, price);
+        this.brewTemp = brewTemp;
     }
     
     @Override

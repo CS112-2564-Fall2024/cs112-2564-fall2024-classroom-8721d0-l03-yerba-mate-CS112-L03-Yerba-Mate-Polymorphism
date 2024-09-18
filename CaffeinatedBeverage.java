@@ -10,10 +10,24 @@ public class CaffeinatedBeverage
         this.ounces = 0;
         this.price = 0.0;
     }
+
     public CaffeinatedBeverage(String name, int ounces, double price) {
         this.name = name;
         this.ounces = ounces;
         this.price = price;
+    }
+    
+    public CaffeinatedBeverage(CaffeinatedBeverage other)
+    {
+        if (other == null)
+        {
+            System.out.println("Error");
+            System.exit(0);
+        } else {
+            this.name = other.name;
+            this.ounces = other.ounces;
+            this.price = other.price;
+        }
     }
 
     public String getName() {
@@ -28,7 +42,8 @@ public class CaffeinatedBeverage
         return this.ounces;
     }
 
-    public void setOunces(int ounces) {
+    public void setOunces(int ounces) 
+    {
         if (ounces >= 0)
         {
             this.ounces = ounces;
@@ -37,6 +52,13 @@ public class CaffeinatedBeverage
         {
         System.out.println("Invalid Number");   
         }
+    }
+
+    public void setAll(String name, int ounces, double price) 
+    {
+        this.name = name;
+        this.ounces = ounces;
+        this.price = price;
     }
 
     public double getPrice() {

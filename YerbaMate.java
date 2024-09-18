@@ -14,6 +14,18 @@ public class YerbaMate extends Tea
         this.numPasses = 0;
     }
 
+    public YerbaMate(YerbaMate other)
+    {
+        if (other == null)
+        {
+            System.out.println("Error");
+            System.exit(0);
+        } else {
+            super.setAll(getName(), getOunces(), getPrice(), getBrewTemp());
+            this.numPasses = other.numPasses;
+        }
+    }
+
     public int getNumPasses()
     {
         return numPasses;
@@ -24,6 +36,13 @@ public class YerbaMate extends Tea
         this.numPasses = numPasses;
 
     }
+
+    public void setAll(String name, int ounces, double price, int brewTemp, int numPasses)
+    {
+        super.setAll(name, ounces, price, brewTemp);
+        this.numPasses = numPasses;
+    }
+    
     @Override
     public boolean equals(Object o) {
         
