@@ -1,3 +1,4 @@
+/**@author Noah Marino**/
 import java.util.Scanner;
 
 public class Main
