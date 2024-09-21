@@ -54,13 +54,19 @@ public class YerbaMate extends Tea {
         System.out.println("Passed the mate, current # of passes: " + this.numPasses);
     }
 
+    public void refill(int ounces) {
+        if (ounces > 0) {
+            this.setOunces(this.getOunces() + ounces);
+        }
+    }
+
     @Override
     public boolean equals(Object other) {
-        if (other instanceof Tea && super.equals(other)) {
-            YerbaMate otherYerbaMate = (YerbaMate) other;
-            return this.numPasses == otherYerbaMate.numPasses;
+        if (other == null || this.getClass() != other.getClass()) {
+            return false;
         }
-        return false;
+        YerbaMate otherYerbaMate = (YerbaMate) other;
+        return super.equals(otherYerbaMate) && this.numPasses == otherYerbaMate.numPasses;
     }
 
     @Override
